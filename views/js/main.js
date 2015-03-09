@@ -450,7 +450,7 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    var queryResult = document.querySelectorAll(".randomPizzaContainer"); // Changed to outside the for loop
+    var queryResult = document.getElementsByClassName("randomPizzaContainer"); // Changed to outside the for loop
     var dx = determineDx(queryResult[0], size); //Changed to 1 calculation outside the for loop
     var newwidth = (queryResult[0].offsetWidth + dx) + 'px'; //Changed to 1 calculation outside the for loop
     for (var i = 0; i < queryResult.length; i++) {
@@ -500,11 +500,13 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
+
+var items = document.getElementsByClassName('mover');
+
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
   var math = Math.sin(document.body.scrollTop / 1250); // Changed to outside the for loop
   for (var i = 0; i < items.length; i++) {
     var phase = math + (i % 5);
