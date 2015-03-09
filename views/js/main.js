@@ -528,13 +528,13 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  var elem = document.createElement('img'); // Changed to outside the for loop
-    elem.className = 'mover'; // Changed to outside the for loop
-    elem.src = "images/pizza.png"; // Changed to outside the for loop
-    elem.style.height = "100px"; // Changed to outside the for loop
-    elem.style.width = "73.333px"; // Changed to outside the for loop
-    var queryResult = document.querySelector("#movingPizzas1");
+  var queryResult = document.querySelector("#movingPizzas1");
   for (var i = 0; i < 200; i++) {
+    var elem = document.createElement('img'); 
+    elem.className = 'mover'; 
+    elem.src = "images/pizza.png"; 
+    elem.style.height = "100px"; 
+    elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     queryResult.appendChild(elem);
