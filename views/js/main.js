@@ -528,8 +528,10 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  var height = screen.height;
   var queryResult = document.querySelector("#movingPizzas1");
-  for (var i = 0; i < 200; i++) {
+  var rows = Math.ceil(height/s);
+  for (var i = 0; i < rows * cols ; i++) {
     var elem = document.createElement('img'); 
     elem.className = 'mover'; 
     elem.src = "images/pizza.png"; 
